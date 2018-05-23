@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Login</h1>
+        </div>
+        <div class="col-md-12">
+            <form action="/login" method="post" class="form-signin">
+                <div class="text-center">
+                    <img class="mb-4" src="" alt="" width="128" height="128">
+                </div>
+                <h3 class="h3 mb-3 font-weight-normal">Please sign in</h3>
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" id="username" name="username" class="form-control formtext-top" placeholder="Username" required autofocus>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control formtext-bottom" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            </form>
+            <div class="form-signin">
+                <a href="/forgot">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>

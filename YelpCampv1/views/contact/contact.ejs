@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Contact Us!</h1>
+        </div>
+        <div class="col-md-12">
+            <form action="/contact/send" method="post" class="form-signin form-contact">
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" id="name" name="name" class="form-control formtext-top" placeholder="Name" required autofocus>
+                <label for="phone" class="sr-only">Name</label>
+                <input type="tel" id="phone" name="phone" class="form-control formtext-middle" placeholder="Phone No." required>
+                <label for="email" class="sr-only">Name</label>
+                <input type="email" id="email" name="email" class="form-control formtext-middle" placeholder="Email" required>
+                <label for="message" class="sr-only">Message</label>
+                <textarea name="message" id="message" class="form-control formtext-bottom" placeholder="Enter your Message" row="8" required></textarea>
+                <div class="g-recaptcha mb-2" data-sitekey=""></div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

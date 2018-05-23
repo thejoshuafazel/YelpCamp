@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>YelpCamp</title>
+        <link rel="icon" type="image/png" href="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="" alt="" width="24" height="24">&nbsp;YelpCamp</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+                            <a class="nav-link" href="/campgrounds">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                      <li class="nav-item <%= typeof page !== 'undefined' && page === 'contact' ? 'active' : '' %>">
+                        <a class="nav-link" href="/contact">Contact Us</a>
+                      </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <% if(!currentUser){ %>
+                            <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                            <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
+                                <a class="nav-link" href="/register">Sign Up</a>
+                            </li>
+                        <% } else { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/users/<%= currentUser.id %>">Signed In As <%= currentUser.username %></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <% if(error && error.length > 0){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
+                </div>
+            <% } %>
+        </div>
